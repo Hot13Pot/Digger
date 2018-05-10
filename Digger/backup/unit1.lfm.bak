@@ -1,0 +1,77 @@
+object Form1: TForm1
+  Left = 123
+  Height = 733
+  Top = 3
+  Width = 1234
+  Caption = 'Меню'
+  ClientHeight = 0
+  ClientWidth = 0
+  OnCreate = FormCreate
+  OnKeyDown = FormKeyDown
+  Position = poScreenCenter
+  LCLVersion = '1.6.4.0'
+  object Button1: TButton
+    Left = 528
+    Height = 56
+    Top = 216
+    Width = 179
+    Caption = 'Играть'
+    OnClick = Button1Click
+    TabOrder = 0
+  end
+  object Button2: TButton
+    Left = 512
+    Height = 40
+    Top = 296
+    Width = 208
+    Caption = 'Результаты'
+    TabOrder = 1
+  end
+  object Button3: TButton
+    Left = 512
+    Height = 40
+    Top = 352
+    Width = 208
+    Caption = 'Настройки'
+    TabOrder = 2
+  end
+  object Button4: TButton
+    Left = 568
+    Height = 32
+    Top = 408
+    Width = 96
+    Caption = 'Выход'
+    OnClick = Button4Click
+    TabOrder = 3
+  end
+  object Image1: TImage
+    Left = 8
+    Height = 640
+    Top = 64
+    Width = 1216
+    OnClick = Image1Click
+  end
+  object Label1: TLabel
+    Left = 336
+    Height = 15
+    Top = 32
+    Width = 34
+    Caption = 'Label1'
+    ParentColor = False
+  end
+  object Label2: TLabel
+    Left = 400
+    Height = 15
+    Top = 32
+    Width = 34
+    Caption = 'Label2'
+    ParentColor = False
+  end
+  object Timer: TTimer
+    Enabled = False
+    Interval = 10
+    OnTimer = TimerTimer
+    left = 16
+    top = 56
+  end
+end

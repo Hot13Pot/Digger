@@ -1,0 +1,166 @@
+unit Unit1;
+
+{$mode objfpc}{$H+}
+
+interface
+
+uses
+  Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, StdCtrls,
+  LCLType, ExtCtrls, ExtDlgs;
+//LCLType Позволяет Использовать vK_LEFT и прочие клавиши все для удобства
+
+type
+
+  { TForm1 }
+
+  TForm1 = class(TForm)
+    Button1: TButton;
+    Button2: TButton;
+    Button3: TButton;
+    Button4: TButton;
+    Image1: TImage;
+    Timer: TTimer;
+    procedure Button1Click(Sender: TObject);
+    procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure TimerTimer(Sender: TObject);
+  private
+    { private declarations }
+  public
+    { public declarations }
+  end;
+
+  const speed_hero=4;
+    const mas_ground1=10;
+      const mas_ground2=19;
+
+var
+  Form1: TForm1;
+  a,b,prob:integer;
+  mas:array[1..mas_ground1,1..mas_ground2] of Tbitmap;
+  x_ground,y_ground,x1,x2:integer;
+    x:integer;
+    y:integer;
+    ThisKey:Word;
+     Anim_Heroes:string;
+
+implementation
+
+{$R *.lfm}
+// 1216 x 640
+
+{ TForm1 }
+
+procedure TForm1.Button1Click(Sender: TObject);
+var Bitmap:Tbitmap;
+begin
+Anim_Heroes:='Images\6.bmp';
+    x:=-1;
+    y:=-1;
+  Button1.Visible:=False;
+  Button2.Visible:=False;
+  Button3.Visible:=False;
+  Button4.Visible:=False;
+   y_ground:=0;
+   x_ground:=0;
+
+  for x1:=1 to mas_ground1 do begin
+     if x1=1 then y_ground:=0
+        else y_ground:=y_ground+64;
+   x_ground:=0;
+   for x2:=1 to mas_ground2 do begin
+        Bitmap:=Graphics.TBitmap.Create;
+         Bitmap.LoadFromFile('Images\1.bmp');
+        Image1.Canvas.Draw(x_ground,y_ground,Bitmap);
+        Bitmap.Free;
+        x_ground:=x_ground+64
+       end;
+  end;
+
+end;
+
+
+
+procedure TForm1.FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState
+  );
+var Bitmap:Tbitmap;
+begin
+ThisKey:=Key;
+// If Key = VK_Left then begin
+//    x:=x-speed_hero;
+//    Bitmap:=Graphics.TBitmap.Create;
+//    Bitmap.LoadFromFile('Images\4.bmp');
+//        Image1.Canvas.Draw(x+speed_hero,y,Bitmap);
+//
+//
+//Bitmap:=Graphics.TBitmap.Create;
+//Bitmap.LoadFromFile('Images\2.bmp');
+//Image1.Canvas.Draw(x,y,Bitmap);
+//Bitmap.Free;
+//  end;
+//
+//  If Key = VK_Right  then begin
+// x:=x+speed_hero;
+//    Bitmap:=Graphics.TBitmap.Create;
+//    Bitmap.LoadFromFile('Images\4.bmp');
+//        Image1.Canvas.Draw(x-speed_hero,y,Bitmap);
+//
+//Bitmap:=Graphics.TBitmap.Create;
+//Bitmap.LoadFromFile('Images\2.bmp');
+//Image1.Canvas.Draw(x,y,Bitmap);
+//Bitmap.Free;
+//  end;
+//
+//  If Key = VK_Up  then begin
+//y:=y-speed_hero;
+//Bitmap:=Graphics.TBitmap.Create;
+//Bitmap.LoadFromFile('Images\4.bmp');
+//Image1.Canvas.Draw(x,y+speed_hero,Bitmap);
+//
+//Bitmap:=Graphics.TBitmap.Create;
+//Bitmap.LoadFromFile('Images\2.bmp');
+//Image1.Canvas.Draw(x,y,Bitmap);
+//Bitmap.Free;
+//  end;
+//
+//If Key = VK_Down  then begin
+//    y:=y+speed_hero;
+//    Bitmap:=Graphics.TBitmap.Create;
+//        Bitmap.LoadFromFile('Images\4.bmp');
+//        Image1.Canvas.Draw(x,y-speed_hero,Bitmap);
+//
+//Bitmap:=Graphics.TBitmap.Create;
+//Bitmap.LoadFromFile('Images\2.bmp');
+//Image1.Canvas.Draw(x,y,Bitmap);
+//Bitmap.Free;
+//  end;
+     If ThisKey=VK_LEFT  then      Timer.Enabled:=True;
+       If ThisKey=VK_RIGHT then    Timer.Enabled:=True;
+       If ThisKey=VK_UP    then  Timer.Enabled:=True;
+       If ThisKey=VK_DOWN  then   Timer.Enabled:=True;
+end;
+
+
+procedure TForm1.TimerTimer(Sender: TObject);
+var Bitmap:TBitMap;
+begin
+ Bitmap:=Graphics.TBitmap.Create;
+Bitmap.LoadFromFile('Images\4.bmp');
+Image1.Canvas.Draw(x-1,y-1,Bitmap);
+Image1.Canvas.Draw(x+1,y+1,Bitmap);
+   Bitmap.Free;
+
+Bitmap:=Graphics.TBitmap.Create;
+Bitmap.LoadFromFile(Anim_Heroes);
+Image1.Canvas.Draw(x,y,Bitmap);
+      Bitmap.Free;
+
+     If ThisKey=VK_LEFT  then begin  Anim_Heroes:='Images\5.bmp'; x:=x-2;   end;
+     If ThisKey=VK_RIGHT then begin  Anim_Heroes:='Images\6.bmp'; x:=x+2;  end;
+     If ThisKey=VK_UP    then begin  Anim_Heroes:='Images\7.bmp'; y:=y-2;  end;
+     If ThisKey=VK_DOWN  then begin  Anim_Heroes:='Images\8.bmp'; y:=y+2;  end;
+     Form1.Timer.Enabled:=false;
+     end;
+
+
+end.
+

@@ -1,0 +1,89 @@
+object Form1: TForm1
+  Left = 544
+  Height = 733
+  Top = 208
+  Width = 1234
+  Caption = 'Меню'
+  ClientHeight = 733
+  ClientWidth = 1234
+  OnCreate = FormCreate
+  OnKeyDown = FormKeyDown
+  Position = poScreenCenter
+  LCLVersion = '1.6.4.0'
+  object GameButton: TButton
+    Left = 528
+    Height = 56
+    Top = 216
+    Width = 179
+    Caption = 'Играть'
+    OnClick = GameButtonClick
+    TabOrder = 0
+  end
+  object Button4: TButton
+    Left = 568
+    Height = 32
+    Top = 408
+    Width = 96
+    Caption = 'Выход'
+    OnClick = Button4Click
+    TabOrder = 1
+  end
+  object Image1: TImage
+    Left = 8
+    Height = 640
+    Top = 64
+    Width = 1216
+    OnClick = Image1Click
+  end
+  object Label1: TLabel
+    Left = 336
+    Height = 15
+    Top = 32
+    Width = 34
+    Caption = 'Label1'
+    ParentColor = False
+  end
+  object Label2: TLabel
+    Left = 400
+    Height = 15
+    Top = 32
+    Width = 34
+    Caption = 'Label2'
+    ParentColor = False
+  end
+  object ScoreLabel: TLabel
+    Left = 104
+    Height = 36
+    Top = 11
+    Width = 16
+    Caption = '0'
+    Font.CharSet = ANSI_CHARSET
+    Font.Color = clBlue
+    Font.Height = -27
+    Font.Name = 'Gill Sans Ultra Bold Condensed'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentColor = False
+    ParentFont = False
+  end
+  object Text1: TLabel
+    Left = 24
+    Height = 27
+    Top = 16
+    Width = 60
+    Caption = 'Очки:'
+    Font.CharSet = RUSSIAN_CHARSET
+    Font.Height = -24
+    Font.Name = 'Times New Roman'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentColor = False
+    ParentFont = False
+  end
+  object Timer: TTimer
+    Interval = 300
+    OnTimer = TimerTimer
+    left = 16
+    top = 56
+  end
+end

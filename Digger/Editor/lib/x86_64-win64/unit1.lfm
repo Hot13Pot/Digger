@@ -1,0 +1,156 @@
+object EditorForm: TEditorForm
+  Left = 133
+  Height = 481
+  Top = 153
+  Width = 1083
+  AutoSize = True
+  Caption = 'Редактор'
+  ClientHeight = 481
+  ClientWidth = 1083
+  Color = clAppWorkspace
+  OnCreate = FormCreate
+  LCLVersion = '1.6.4.0'
+  object StringGrid1: TStringGrid
+    Left = 24
+    Height = 232
+    Top = 32
+    Width = 560
+    AutoFillColumns = True
+    Color = clWhite
+    ColCount = 19
+    FixedColor = clHotLight
+    FixedCols = 0
+    FixedRows = 0
+    GridLineWidth = 2
+    Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goEditing, goSmoothScroll]
+    RowCount = 10
+    TabOrder = 0
+    OnSelectCell = StringGrid1SelectCell
+    ColWidths = (
+      29
+      29
+      29
+      29
+      29
+      29
+      29
+      29
+      29
+      29
+      29
+      29
+      29
+      29
+      29
+      29
+      29
+      29
+      34
+    )
+  end
+  object DrawGrid1: TDrawGrid
+    Left = 792
+    Height = 182
+    Top = 248
+    Width = 264
+    AutoFillColumns = True
+    Color = clInfoBk
+    ColCount = 19
+    ExtendedSelect = False
+    FixedCols = 0
+    FixedRows = 0
+    ParentFont = False
+    RowCount = 10
+    TabOrder = 1
+    ColWidths = (
+      12
+      12
+      12
+      12
+      12
+      12
+      12
+      12
+      12
+      12
+      12
+      12
+      12
+      12
+      12
+      12
+      12
+      12
+      27
+    )
+  end
+  object WallButton: TButton
+    Left = 40
+    Height = 25
+    Top = 272
+    Width = 75
+    Caption = 'Стена'
+    OnClick = WallButtonClick
+    TabOrder = 2
+  end
+  object Tunelbutton: TButton
+    Left = 136
+    Height = 25
+    Top = 272
+    Width = 75
+    Caption = 'Тунель'
+    OnClick = TunelbuttonClick
+    TabOrder = 3
+  end
+  object BotButton: TButton
+    Left = 232
+    Height = 25
+    Top = 272
+    Width = 75
+    Caption = 'Бот'
+    OnClick = BotButtonClick
+    TabOrder = 4
+  end
+  object LabelName: TLabel
+    Left = 16
+    Height = 15
+    Top = 320
+    Width = 52
+    Caption = 'Название'
+    ParentColor = False
+  end
+  object SaveButton: TButton
+    Left = 104
+    Height = 25
+    Top = 360
+    Width = 75
+    Caption = 'Сохранить'
+    OnClick = SaveButtonClick
+    TabOrder = 5
+  end
+  object EditName: TEdit
+    Left = 80
+    Height = 23
+    Top = 320
+    Width = 160
+    TabOrder = 6
+  end
+  object GoldButton: TButton
+    Left = 328
+    Height = 25
+    Top = 272
+    Width = 75
+    Caption = 'Золото'
+    OnClick = GoldButtonClick
+    TabOrder = 7
+  end
+  object SpikeButton: TButton
+    Left = 424
+    Height = 25
+    Top = 272
+    Width = 75
+    Caption = 'шипы'
+    OnClick = SpikeButtonClick
+    TabOrder = 8
+  end
+end
